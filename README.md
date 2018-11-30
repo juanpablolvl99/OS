@@ -7,9 +7,17 @@ I'm writing a simple OS encouraged and with the help of this [article](https://w
 To run and see what it does, it will need a cpu emulator, I'm using **qmeu** to load the boot and **nasm** to compile the boot assembly commands into a hexadecimal bin file.
 
 
+To compile the boot sector code run.
+```
+git clone <this-repo> && cd
+nasm -f bin boot_sector.asm -o boot_sector.bin
+```
+
+
+
 First find the ```x86_64-softmmu``` dir, that can be in other location depending how you have configured the emulator, and run the following commands.
 ```
 <install-folder-path>/x86_64-softmmu/qemu-system-x86_64 -drive \
-  file=<your-boot-file-path>.bin, \
+  file=<path>/boot_sector.bin, \
   format=raw --nographic
 ```
